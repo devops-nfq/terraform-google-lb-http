@@ -159,7 +159,7 @@ resource "google_compute_backend_service" "default" {
   for_each = var.backends
 
   project = var.project
-  name    = "${var.name}-backend-${each.key}"
+  name    = lower("${var.name}-backend-${each.key}")
 
   port_name = each.value.port_name
   protocol  = each.value.protocol
